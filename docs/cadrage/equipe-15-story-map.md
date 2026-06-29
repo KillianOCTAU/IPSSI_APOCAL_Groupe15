@@ -1,4 +1,4 @@
-# Story Map — EduTutor IA
+# Story Map -- EduTutor IA
 **Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum**
 
 ---
