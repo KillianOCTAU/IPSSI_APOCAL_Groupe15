@@ -1,4 +1,4 @@
-# Customer Journey Maps — EduTutor IA
+# Customer Journey Maps -- EduTutor IA
 **Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum**
 
 ---
@@ -18,7 +18,7 @@
 ---
 
 
-## 1. Parcours Étudiant — Léa Martin (cible primaire)
+## 1. Parcours Étudiant -- Léa Martin (cible primaire)
 
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
@@ -37,7 +37,7 @@
 ---
 
 
-## 2. Parcours Enseignant — Mme Sophie Lefèvre (cible secondaire émergente J1)
+## 2. Parcours Enseignant -- Mme Sophie Lefèvre (cible secondaire émergente J1)
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
 |---|---|---|---|---|
@@ -55,7 +55,7 @@
 ---
 
 
-## 3. Parcours Établissement — M. David Chen (cible tertiaire B2B)
+## 3. Parcours Établissement -- M. David Chen (cible tertiaire B2B)
 
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
