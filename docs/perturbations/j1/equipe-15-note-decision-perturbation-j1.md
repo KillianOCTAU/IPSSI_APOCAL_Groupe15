@@ -1,4 +1,4 @@
-# Note de décision — Perturbation J1
+# Note de décision - Perturbation J1
 **Projet EduTutor IA · Équipe 15 · Semaine APOCAL'IPSSI 2026**
 
 ---
@@ -9,7 +9,7 @@
 |---|---|
 | **Équipe n°** | 15 |
 | **Membres** | Yoann CURTY, Zouayobo DALI, Killian OCTAU, Antoine BLAIN, Maxence GIROUD, Hyndi FANNIR, BOUYABRI Mohamed |
-| **Perturbation** | J1 — Persona enseignante (Mme Lefèvre) |
+| **Perturbation** | J1 - Persona enseignante (Mme Lefèvre) |
 | **Reçue le** | Lundi 30/06/2026 à 14h00 |
 | **Décision prise le** | Lundi 30/06/2026 à 15h00 |
 | **Statut** | Validé équipe |
@@ -30,7 +30,7 @@ Le sponsor a transmis à 14h00 le message suivant :
 
 ---
 
-## 2. Décision — Hiérarchie des personas
+## 2. Décision - Hiérarchie des personas
 
 ### Décision retenue : **2 personas co-primaires**
 
@@ -49,9 +49,8 @@ Le sponsor a transmis à 14h00 le message suivant :
 
 | Alternative | Raison du rejet |
 |---|---|
-| Mme Lefèvre seule primaire | Invaliderait les 25 SP déjà engagés sur le MVP étudiant — recommencer à zéro = anti-pattern agile |
+| Mme Lefèvre seule primaire | Invaliderait les 25 SP déjà engagés sur le MVP étudiant - recommencer à zéro = anti-pattern agile |
 | Mme Lefèvre secondaire (inchangée) | Ne répond pas à la demande explicite du sponsor ; laisserait ses besoins core sans couverture R1 |
-| Ignorer la perturbation | Interdit — le formateur évalue la capacité à réagir ; refus = note nulle sur le critère perturbations |
 
 ---
 
@@ -59,10 +58,10 @@ Le sponsor a transmis à 14h00 le message suivant :
 
 | US | Libellé (résumé) | MoSCoW | SP | Sprint | Justification |
 |---|---|---|---|---|---|
-| **US-T01** | Modéliser entité `Classe` + `User.role` | MUST (tech) | 3 | S1 | Prérequis bloquant pour toutes les stories teacher — sans migration Django en S1, US-25/26 ne peuvent pas démarrer en S3 |
-| **US-25** | Dashboard classe (scores + taux complétion) | MUST | 5 | S3 | Besoin core Mme Lefèvre n°1 ("voir leurs scores") — sans dashboard, la persona co-primaire n'a aucune valeur dans R1 |
-| **US-26** | Alertes décrocheurs (score < 5/10) | MUST | 3 | S4 | Besoin core Mme Lefèvre n°2 ("repérer ceux qui décrochent") — couplé au dashboard, faible effort additionnel |
-| **US-27** | Envoyer un conseil à un étudiant | SHOULD | 5 | S6 | Besoin n°3 de Mme Lefèvre, mais implémentable via email externe en attendant — non bloquant pour R1 |
+| **US-T01** | Modéliser entité `Classe` + `User.role` | MUST (tech) | 3 | S1 | Prérequis bloquant pour toutes les stories teacher - sans migration Django en S1, US-25/26 ne peuvent pas démarrer en S3 |
+| **US-25** | Dashboard classe (scores + taux complétion) | MUST | 5 | S3 | Besoin core Mme Lefèvre n°1 ("voir leurs scores") - sans dashboard, la persona co-primaire n'a aucune valeur dans R1 |
+| **US-26** | Alertes décrocheurs (score < 5/10) | MUST | 3 | S4 | Besoin core Mme Lefèvre n°2 ("repérer ceux qui décrochent") - couplé au dashboard, faible effort additionnel |
+| **US-27** | Envoyer un conseil à un étudiant | SHOULD | 5 | S6 | Besoin n°3 de Mme Lefèvre, mais implémentable via email externe en attendant - non bloquant pour R1 |
 | **US-28** | Historique quiz par étudiant de la classe | COULD | 3 | S7 | Nice-to-have : apporte de la granularité au dashboard mais n'est pas un besoin exprimé explicitement par Mme Lefèvre |
 
 **Total stories teacher ajoutées : 5 · Total SP : 19 SP**
@@ -79,7 +78,7 @@ Le sponsor a transmis à 14h00 le message suivant :
 | US-16 (flashcards Anki, 8 SP) sort de R1 → R2 | −8 SP | ↓ Sortie |
 | **Delta net R1** | **+3 SP** | Acceptable |
 
-**Scope engagé R1 : 56 SP → 59 SP** (+5 % — dans la marge de vélocité de l'équipe)
+**Scope engagé R1 : 56 SP → 59 SP** (+5 % - dans la marge de vélocité de l'équipe)
 
 ### Impact par sprint
 
@@ -94,13 +93,13 @@ Le sponsor a transmis à 14h00 le message suivant :
 
 US-25 et US-26 supposent une entité `Classe` dans le schéma Django qui n'existe pas dans le kit. Insérer cette migration en S3 sans préparation provoquerait des régressions sur US-01/02/03 déjà livrés.
 
-**Solution retenue : US-T01 en Sprint 1** — la modélisation `Classe` est traitée comme une dette technique prioritaire dès S1, avant que la fonctionnalité teacher soit développée.
+**Solution retenue : US-T01 en Sprint 1** - la modélisation `Classe` est traitée comme une dette technique prioritaire dès S1, avant que la fonctionnalité teacher soit développée.
 
 ---
 
 ## 5. Récapitulatif des fichiers modifiés
 
-Tous les artefacts du cadrage modifiés en v1.1 le 30/06/2026 à 15h00. Les contenus étudiants (Léa Martin) sont **strictement conservés** — seuls des éléments enseignant ont été ajoutés.
+Tous les artefacts du cadrage modifiés en v1.1 le 30/06/2026 à 15h00. Les contenus étudiants (Léa Martin) sont **strictement conservés** - seuls des éléments enseignant ont été ajoutés.
 
 | Fichier | Version avant | Version après | Nature de la modification |
 |---|---|---|---|
@@ -117,10 +116,10 @@ Tous les artefacts du cadrage modifiés en v1.1 le 30/06/2026 à 15h00. Les cont
 
 | CA | Description | Couvert ? | Preuve |
 |---|---|---|---|
-| **CA-J1-1** | Fiche persona Mme Lefèvre avec 6 dimensions | ✅ | `equipe-15-personas.md` §2 — 6 sections (identité, contexte, compétences, frustrations, objectifs, critères succès) |
-| **CA-J1-2** | Customer Journey Mme Lefèvre, 5 étapes min | ✅ | `equipe-15-customer-journey-maps-v1.0.md` §2 — 5 étapes Découverte → Recommandation |
-| **CA-J1-3** | Story Map actualisée avec stories enseignant | ✅ | `equipe-15-story-map-v1.0.md` v1.1 — colonne 7 avec US-25/26/27/28/29 |
-| **CA-J1-4** | 3+ nouvelles US au format INVEST | ✅ | US-25, US-26, US-27, US-28 (4 US) — format INVEST complet |
+| **CA-J1-1** | Fiche persona Mme Lefèvre avec 6 dimensions | ✅ | `equipe-15-personas.md` §2 - 6 sections (identité, contexte, compétences, frustrations, objectifs, critères succès) |
+| **CA-J1-2** | Customer Journey Mme Lefèvre, 5 étapes min | ✅ | `equipe-15-customer-journey-maps-v1.0.md` §2 - 5 étapes Découverte → Recommandation |
+| **CA-J1-3** | Story Map actualisée avec stories enseignant | ✅ | `equipe-15-story-map-v1.0.md` v1.1 - colonne 7 avec US-25/26/27/28/29 |
+| **CA-J1-4** | 3+ nouvelles US au format INVEST | ✅ | US-25, US-26, US-27, US-28 (4 US) - format INVEST complet |
 | **CA-J1-5** | Priorisation MoSCoW visible et argumentée | ✅ | Section 3 de cette note + colonnes MoSCoW dans le backlog |
 | **CA-J1-6** | Note de décision écrite et argumentée | ✅ | Ce document |
 | **CA-J1-7** | Artefacts existants conservés (non écrasés) | ✅ | Contenu Léa Martin intact dans tous les artefacts · git history préserve v1.0 |
