@@ -109,6 +109,7 @@ Tous les artefacts du cadrage modifiés en v1.1 le 30/06/2026 à 15h00. Les cont
 | `equipe-15-story-map-v1.0.md` | v1.0 | v1.1 | Colonne 7 "Suivre sa classe" ajoutée · US-25/26 en MUST · US-27 SHOULD · US-28 COULD · US-29 WON'T · US-16 étiqueté → R2 |
 | `equipe-15-product-backlog.md` | v1.0 | v1.1 | EP-07 ajouté · US-T01 + US-25 + US-26 en MUST · US-27 en SHOULD · US-28 en COULD · US-16 → R2 · Scope 56 → 59 SP |
 | `equipe-15-release-planning-v1.0.md` | v1.0 | v1.1 | S1 +US-T01 · S3 +US-25 · S4 +US-26 · burnup scope 56 → 59 SP |
+| `equipe-15-product-vision-board-v1.0.md` | v1.0 | v1.1 | §2.1 "Cible primaire" → "Cible co-primaire 1" · §2.2 "Cible secondaire" → "Cible co-primaire 2" + note J1 · §3.2 2 nouveaux besoins enseignant (dashboard + alertes) · §4.2 mention F7/F8 ajoutées R1 |
 
 ---
 
