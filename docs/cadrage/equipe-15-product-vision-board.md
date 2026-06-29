@@ -28,7 +28,7 @@
 
 ## 2. Target Group (cibles utilisateurs)
 
-### 2.1. Cible primaire - Étudiant·e du supérieur
+### 2.1. co-primaire 1 - Étudiant·e du supérieur
 
 | Attribut | Détail |
 |:--|---|
@@ -37,7 +37,7 @@
 | **Pain point** | 5h à 15h/semaine consacrées à chercher ou créer des supports de révision ; peu de feedback immédiat sur leurs lacunes |
 | **Critère clé** | **Confidentialité des données** (ne veut pas que ses notes de cours soient aspirées par un cloud étranger) + **disponibilité hors connexion** (révision en transports) + **gratuité ou coût nul** |
 
-### 2.2. Cible secondaire - Enseignante Mme Lefèvre (persona émergente J1)
+### 2.2. co-primaire 2 - Enseignante Mme Lefèvre (persona émergente J1)
 
 | Attribut | Détail |
 |---|---|
@@ -59,7 +59,7 @@
 
 ## 3. Needs (besoins résolus)
 
-### 3.1. Besoins de la cible primaire (Étudiant)
+### 3.1. Besoins de la cible primaire 1 (Étudiant)
 
 1. **Générer en moins de 5 min un quiz de révision** sur n'importe quel chapitre d'un cours fourni (PDF ≤ 5 Mo ou texte ≥ 200 caractères)
 2. **Identifier ses lacunes par chapitre** avant un examen, sans correcteur humain - *page `/review`*
@@ -67,7 +67,7 @@
 4. **Consulter son historique de progression** pour mesurer ses progrès dans le temps - *dashboard `/dashboard`*
 5. **Obtenir un feedback immédiat** (bonne/mauvaise réponse, explication) après chaque question
 
-### 3.2. Besoins de la cible secondaire (Enseignant)
+### 3.2. Besoins de la cible primaire 2 (Enseignant)
 
 1. **Préparer des supports d'évaluation variés** (quiz, QCM, questions ouvertes) en gagnant au moins **2h par semaine** sur la préparation
 2. **Adapter automatiquement le niveau de difficulté** au niveau de la classe (L1 vs M2) - *piste Release 2 n°4 « Niveaux de difficulté »*
