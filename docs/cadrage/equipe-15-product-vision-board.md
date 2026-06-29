@@ -10,8 +10,8 @@
 | **Équipe n°** | 15 |
 | **Membres** | Yoann CURTY, Zouayobo DALI, Killian OCTAU, Antoine BLAIN, Maxence GIROUD, Hyndi FANNIR,  BOUYABRI Mohamed |
 | **Sprint concerné** | Cadrage (J1 matin) |
-| **Version** | v1 (initiale) |
-| **Date de remise** | 29/06/2026 13h00 |
+| **Version** | v1.1 |
+| **Date de remise** | 29/06/2026 |
 | **Statut** | Draft |
 
 ---
