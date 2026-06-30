@@ -26,8 +26,8 @@
 | **Capacité totale** | 7 × 4 h = **28 h-pers** |
 | **Vélocité cible** | 8–10 SP (US-01 = 3 SP · US-02 = 5 SP = **8 SP total**) |
 | **Objectif sprint** | Setup technique + démarrage MVP : F1 inscription email fonctionnelle, F2 upload cours (PDF + texte) opérationnel, tests verts en CI |
-| **Scrum Master** | [ Prénom NOM ] |
-| **Product Owner** | [ Prénom NOM ] |
+| **Scrum Master** | Hyndi FANNIR  |
+| **Product Owner** | Mostapha Bachir ADDI |
 
 ---
 
