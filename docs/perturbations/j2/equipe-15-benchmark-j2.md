@@ -10,14 +10,14 @@
 | **Équipe n°** | 15 |
 | **Membres** | Yoann CURTY, Zouayobo DALI, Killian OCTAU, Antoine BLAIN, Maxence GIROUD, Hyndi FANNIR, BOUYABRI Mohamed |
 | **Perturbation** | J2 - Latence inacceptable |
-| **Date** | 01/07/2026 |
+| **Date** | 30/06/2026 |
 | **Version** | v1.0 |
 
 ---
 
 ## 1. Contexte
 
-Le mardi 01/07/2026 à 10h00, le PO a transmis le retour suivant d'un beta-testeur :
+Le mardi 30/06/2026 à 10h00, le PO a transmis le retour suivant d'un beta-testeur :
 
 > « J'ai uploadé mon cours d'algorithmie. J'ai attendu 45 secondes pour avoir 10 questions. Pendant ce temps j'ai cru que le site était cassé. J'ai failli partir. »
 
