@@ -51,7 +51,7 @@ const SECTIONS: LegalSection[] = [
     title: 'Contact & réclamation',
     hint: (
       <>
-        Pour toute demande, l'utilisateur peut écrire au référent données fictif{' '}
+        Pour toute demande, l'utilisateur peut écrire au référent données {' '}
         <a href="mailto:dpo@edututor.local" className="text-indigo-600 hover:underline">
           dpo@edututor.local
         </a>

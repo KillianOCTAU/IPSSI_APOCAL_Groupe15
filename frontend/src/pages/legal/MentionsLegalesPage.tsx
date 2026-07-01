@@ -23,7 +23,7 @@ const SECTIONS: LegalSection[] = [
   {
     title: 'Hébergeur',
     hint:
-      "En environnement de démonstration, le service est hébergé localement ou sur l'infrastructure de test du projet. En production, l'hébergeur devra être identifié précisément.",
+      "Le site EduTutor IA est hébergé par OVH SAS, située 2 rue Kellermann, 59100 Roubaix, France. OVH SAS est immatriculée au RCS de Lille Métropole sous le numéro 424 761 419 00045.",
   },
   {
     title: 'Propriété intellectuelle',
