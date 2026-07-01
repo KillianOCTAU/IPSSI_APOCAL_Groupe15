@@ -15,6 +15,7 @@ USERNAME_FIELD = 'email').
 
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 
 
 class Profile(models.Model):
@@ -42,3 +43,52 @@ def get_or_create_profile(user) -> Profile:
     """
     profile, _ = Profile.objects.get_or_create(user=user)
     return profile
+
+
+class DataRequest(models.Model):
+    """Audit trail des demandes d'accès RGPD (Art. 15)."""
+
+    class Status(models.TextChoices):
+        PENDING = "pending", "En attente"
+        PROCESSING = "processing", "En cours"
+        COMPLETED = "completed", "Terminé"
+        FAILED = "failed", "Échoué"
+
+    class RequestType(models.TextChoices):
+        SAR_ACCESS = "sar_access", "Accès Art. 15"
+        SAR_PORTABILITY = "sar_portability", "Portabilité Art. 20"
+        ERASURE = "erasure", "Effacement Art. 17"
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="data_requests",
+    )
+    user_email = models.EmailField()
+    request_type = models.CharField(
+        max_length=32,
+        choices=RequestType.choices,
+        default=RequestType.SAR_ACCESS,
+    )
+    status = models.CharField(
+        max_length=16,
+        choices=Status.choices,
+        default=Status.PENDING,
+    )
+    requested_at = models.DateTimeField(auto_now_add=True)
+    responded_at = models.DateTimeField(null=True, blank=True)
+    export_hash = models.CharField(max_length=64, blank=True, default="")
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-requested_at"]
+
+    def mark_completed(self, export_payload: dict) -> None:
+        import hashlib
+        import json
+
+        canonical = json.dumps(export_payload, sort_keys=True, ensure_ascii=False)
+        self.export_hash = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+        self.status = self.Status.COMPLETED
+        self.responded_at = timezone.now()
+        self.save(update_fields=["export_hash", "status", "responded_at"])

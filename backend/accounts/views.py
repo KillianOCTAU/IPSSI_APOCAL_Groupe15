@@ -16,6 +16,7 @@ import logging
 from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
+from django.http import HttpResponse
 from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
 from rest_framework.authtoken.models import Token
@@ -24,7 +25,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .emails import EmailError, send_password_reset_email, send_verification_email
-from .models import get_or_create_profile
+from .export import build_audit_payload, build_export_bundle, build_export_zip, get_client_ip
+from .models import DataRequest, get_or_create_profile
 from .serializers import (
     ChangePasswordSerializer,
     DeleteAccountSerializer,
@@ -116,6 +118,39 @@ class MeView(APIView):
     @extend_schema(responses={200: UserSerializer})
     def get(self, request):
         return Response(UserSerializer(request.user).data)
+
+
+class ExportMyDataView(APIView):
+    """Export ZIP (quiz.json + reponses.csv + audit.json) — RGPD Art. 15."""
+
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(responses={200: OpenApiResponse(description="Archive ZIP")})
+    def get(self, request):
+        user = request.user
+        audit = DataRequest.objects.create(
+            user=user,
+            user_email=user.email,
+            request_type=DataRequest.RequestType.SAR_ACCESS,
+            status=DataRequest.Status.PROCESSING,
+            ip_address=get_client_ip(request),
+        )
+
+        bundle = build_export_bundle(user)
+        if bundle["meta"]["user_id"] != user.pk:
+            audit.status = DataRequest.Status.FAILED
+            audit.save(update_fields=["status"])
+            return Response({"detail": "Accès refusé."}, status=status.HTTP_403_FORBIDDEN)
+
+        audit.mark_completed(bundle)
+        audit_payload = build_audit_payload(audit)
+        zip_bytes = build_export_zip(bundle, audit_payload)
+
+        filename = f"edututor-export-{user.pk}-{audit.requested_at.strftime('%Y%m%d')}.zip"
+        response = HttpResponse(zip_bytes, content_type="application/zip")
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
+        response["X-Export-Hash"] = audit.export_hash
+        return response
 
 
 class VerifyEmailView(APIView):
