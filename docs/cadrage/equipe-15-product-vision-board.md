@@ -1,4 +1,4 @@
-# Product Vision Board — EduTutor IA
+# Product Vision Board - EduTutor IA
 **Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum**
 
 ---
@@ -10,17 +10,17 @@
 | **Équipe n°** | 15 |
 | **Membres** | Yoann CURTY, Zouayobo DALI, Killian OCTAU, Antoine BLAIN, Maxence GIROUD, Hyndi FANNIR,  BOUYABRI Mohamed |
 | **Sprint concerné** | Cadrage (J1 matin) |
-| **Version** | v1 (initiale) |
-| **Date de remise** | 29/06/2026 13h00 |
+| **Version** | v1.1 |
+| **Date de remise** | 29/06/2026 |
 | **Statut** | Draft |
 
 ---
 
 ## 1. Vision
 
-### 1.1. Vision EduTutor IA — version équipe 15
+### 1.1. Vision EduTutor IA - version équipe 15
 
-> Permettre à chaque étudiant·e du supérieur de transformer **en moins de 5 minutes** n'importe quel cours en quiz de révision personnalisé — et à chaque enseignant·e de produire des évaluations variées sans effort — tout en garantissant que **aucune donnée pédagogique ne quitte jamais leur établissement**.
+> Permettre à chaque étudiant·e du supérieur de transformer **en moins de 5 minutes** n'importe quel cours en quiz de révision personnalisé et à chaque enseignant·e de produire des évaluations variées sans effort tout en garantissant que **aucune donnée pédagogique ne quitte jamais leur établissement**.
 
 **Justification :** La promesse centrale est double, vitesse pour l'étudiant (5 min vs 2-4 h de travail manuel) et souveraineté des données (Ollama local, zéro cloud obligatoire). Ces deux axes sont directement traçables dans le code : `llm/services/ollama_client.py` pour le local-first, `llm/services/quiz_prompt.py` pour la génération en une seule passe.
 
@@ -28,7 +28,7 @@
 
 ## 2. Target Group (cibles utilisateurs)
 
-### 2.1. Cible primaire — Étudiant·e du supérieur
+### 2.1. co-primaire 1 - Étudiant·e du supérieur
 
 | Attribut | Détail |
 |:--|---|
@@ -37,7 +37,7 @@
 | **Pain point** | 5h à 15h/semaine consacrées à chercher ou créer des supports de révision ; peu de feedback immédiat sur leurs lacunes |
 | **Critère clé** | **Confidentialité des données** (ne veut pas que ses notes de cours soient aspirées par un cloud étranger) + **disponibilité hors connexion** (révision en transports) + **gratuité ou coût nul** |
 
-### 2.2. Cible secondaire — Enseignant·e (persona émergente J1)
+### 2.2. co-primaire 2 - Enseignante Mme Lefèvre (persona émergente J1)
 
 | Attribut | Détail |
 |---|---|
@@ -46,7 +46,7 @@
 | **Pain point** | ~12h/mois en correction et préparation de supports d'évaluation variés ; manque de diversité dans les types de questions proposées aux élèves |
 | **Critère clé** | **Interface simple** (sans courbe d'apprentissage), **conformité RGPD** (données élèves protégées), **export Word/PDF** pour intégration dans les outils existants |
 
-### 2.3. Cible tertiaire — Établissement scolaire (acheteur B2B)
+### 2.3. Cible tertiaire - Établissement scolaire (acheteur B2B)
 
 | Attribut | Détail |
 |---|---|
@@ -59,26 +59,26 @@
 
 ## 3. Needs (besoins résolus)
 
-### 3.1. Besoins de la cible primaire (Étudiant)
+### 3.1. Besoins de la cible primaire 1 (Étudiant)
 
-1. **Générer en moins de 5 min un quiz de révision** sur n'importe quel chapitre d'un cours fourni (PDF ≤ 5 Mo ou texte ≥ 200 caractères) — *directement adressé par F2 + F3*
-2. **Identifier ses lacunes par chapitre** avant un examen, sans correcteur humain — *adressé par F4 + F5 + page `/review`*
+1. **Générer en moins de 5 min un quiz de révision** sur n'importe quel chapitre d'un cours fourni (PDF ≤ 5 Mo ou texte ≥ 200 caractères)
+2. **Identifier ses lacunes par chapitre** avant un examen, sans correcteur humain - *page `/review`*
 3. **Réviser hors-ligne** (transports, lieu sans wifi) grâce au modèle Ollama qui tourne localement
-4. **Consulter son historique de progression** pour mesurer ses progrès dans le temps — *adressé par F6 + dashboard `/dashboard`*
-5. **Obtenir un feedback immédiat** (bonne/mauvaise réponse, explication) après chaque question — *partiellement adressé, piste Release 2 n°5 « Explication des réponses »*
+4. **Consulter son historique de progression** pour mesurer ses progrès dans le temps - *dashboard `/dashboard`*
+5. **Obtenir un feedback immédiat** (bonne/mauvaise réponse, explication) après chaque question
 
-### 3.2. Besoins de la cible secondaire (Enseignant)
+### 3.2. Besoins de la cible primaire 2 (Enseignant)
 
 1. **Préparer des supports d'évaluation variés** (quiz, QCM, questions ouvertes) en gagnant au moins **2h par semaine** sur la préparation
-2. **Adapter automatiquement le niveau de difficulté** au niveau de la classe (L1 vs M2) — *piste Release 2 n°4 « Niveaux de difficulté »*
-3. **Partager un quiz** avec ses étudiants par simple lien sans compte obligatoire — *piste Release 2 n°14 « Partage de quiz »*
+2. **Adapter automatiquement le niveau de difficulté** au niveau de la classe (L1 vs M2) - *piste Release 2 n°4 « Niveaux de difficulté »*
+3. **Partager un quiz** avec ses étudiants par simple lien sans compte obligatoire - *piste Release 2 n°14 « Partage de quiz »*
 4. **Garder la maîtrise des données de ses élèves** : aucun contenu de cours ne transite par un serveur hors UE
 
 ### 3.3. Besoins de la cible tertiaire (Établissement)
 
-1. **Disposer d'un outil edtech RGPD conforme**, sans transfert de données hors UE — *garanti par le mode Ollama local*
+1. **Disposer d'un outil edtech RGPD conforme**, sans transfert de données hors UE - *garanti par le mode Ollama local*
 2. **Tarification prévisible par élève / par an**, sans surprise budgétaire (modèle SaaS B2B ou licence annuelle)
-3. **Déploiement simplifié** sur infrastructure propre (Docker Compose + VPS OVH) sans dépendance cloud propriétaire — *documenté dans `docs/11-deploiement-vps-ovh.md`*
+3. **Déploiement simplifié** sur infrastructure propre (Docker Compose + VPS OVH) sans dépendance cloud propriétaire 
 
 ---
 
@@ -87,12 +87,12 @@
 ### 4.1. Caractéristiques signature d'EduTutor IA
 
 1. **Génération de 10 QCM en moins de 60 s** à partir d'un cours fourni (PDF ou texte), corrigés et notés automatiquement
-2. **100 % local via Ollama** (Llama 3.1 8B par défaut) — aucune donnée ne quitte le serveur de l'établissement ; 9 fournisseurs disponibles pour les équipes sans GPU (`gemini`, `groq`, `mistral`…)
+2. **100 % local via Ollama** (Llama 3.1 8B par défaut) - aucune donnée ne quitte le serveur de l'établissement 
 3. **Interface mobile-first** et hors-ligne friendly, avec tableau de bord de progression et révision ciblée des erreurs
-4. **Configuration LLM à chaud sans redéploiement** : un administrateur change de fournisseur ou de modèle depuis l'interface `/admin`, effet immédiat — *`llm/models.py` LLMConfig singleton*
-5. **Pipeline de validation anti-hallucination** : toute sortie LLM est parsée et validée (10 questions, 4 options, index valide) avant d'atteindre l'utilisateur — *`llm/services/quiz_prompt.py::parse_and_validate_quiz`*
+4. **Configuration LLM à chaud sans redéploiement** : un administrateur change de fournisseur ou de modèle depuis l'interface `/admin`, effet immédiat - *`llm/models.py` LLMConfig singleton*
+5. **Pipeline de validation anti-hallucination** : toute sortie LLM est parsée et validée (10 questions, 4 options, index valide) avant d'atteindre l'utilisateur - *`llm/services/quiz_prompt.py::parse_and_validate_quiz`*
 
-### 4.2. MVP must-have — Release 1 (mercredi soir)
+### 4.2. MVP must-have - Release 1 (mercredi soir)
 
 | # | Feature | Statut kit |
 |---|---|---|
@@ -105,11 +105,11 @@
 
 > ⚠️ Le kit livre ~30 % du MVP « câblé ». Les finitions UX, les pages légales (RGPD, CGU, mentions, cookies), le durcissement sécurité (prompt injection → perturbation J3) et le choix définitif du fournisseur LLM (ADR → perturbation J2) restent à compléter.
 
-### 4.3. Pistes Release 2 — Sélection équipe 15 (2 candidates + 1 bonus)
+### 4.3. Pistes Release 2 - Sélection équipe 15 (2 candidates + 1 bonus)
 
 | Priorité | Piste (catalogue `docs/08-mvp2-idees.md`) | Complexité | Justification |
 |---|---|---|---|
-| 🥇 **Candidate 1** | **#5 Explication des réponses** | 🟡 Moyenne | Transforme le quiz d'un simple outil d'évaluation en vrai outil d'apprentissage ; demande un second champ LLM dans le prompt — faisable en 1 sprint |
+| 🥇 **Candidate 1** | **#5 Explication des réponses** | 🟡 Moyenne | Transforme le quiz d'un simple outil d'évaluation en vrai outil d'apprentissage ; demande un second champ LLM dans le prompt - faisable en 1 sprint |
 | 🥈 **Candidate 2** | **#4 Niveaux de difficulté** | 🟡 Moyenne | Répond directement au besoin enseignant (adapter au niveau de la classe) ; ne nécessite que d'enrichir `quiz_prompt.py` et un champ `difficulty` sur `Quiz` |
 | 🥉 **Bonus** | **#14 Partage de quiz** | 🟡 Moyenne | Crée de la viralité organique (lien de partage) et répond au besoin enseignant de diffuser un quiz sans obliger les élèves à créer un compte |
 
@@ -150,24 +150,24 @@
 
 | Concurrent | Positionnement | Limite identifiée |
 |---|---|---|
-| **Wilgo.ai** | Compagnon IA français pour étudiants, interface conversationnelle | Cloud, dépendance OpenAI, données hors UE — incompatible B2B éducation FR |
+| **Wilgo.ai** | Compagnon IA français pour étudiants, interface conversationnelle | Cloud, dépendance OpenAI, données hors UE - incompatible B2B éducation FR |
 | **Leo (iamleo.ai)** | Tuteur IA Bac/sup ancré sur programmes français | Cible étudiants uniquement, pas d'angle enseignant, pas de mode local |
 | **Quizlet AI** | Cartes mémoire et quiz IA, pionnier US, 60M d'utilisateurs | Pas d'ancrage sur cours fourni par l'utilisateur, focus marché US, RGPD flou |
 | **Khanmigo** | Tuteur IA Khan Academy, lancé 2023, pédagogie socratique | US-first, conformité RGPD UE floue, pas d'upload de cours propres |
 
 ### 6.2. Nos 3 différenciateurs argumentés
 
-**Différenciateur 1 — Prompt enseignant (« teacher-first »)**
+**Différenciateur 1 - Prompt enseignant (« teacher-first »)**
 
-Les concurrents sont « étudiant-first » : l'élève pose une question, l'IA résume. EduTutor inverse la logique : c'est **l'enseignant (ou l'étudiant) qui fournit son cours**, et l'IA produit un support d'évaluation *ancré sur ce cours précis*. Aucun concurrent ne propose de générer 10 QCM à partir d'un document propriétaire en moins d'une minute. Notre prompt système (`SYSTEM_PROMPT` dans `llm/services/quiz_prompt.py`) est conçu pour des QCM pédagogiques francophones stricts — pas une IA généraliste qui improvise.
+Les concurrents sont « étudiant-first » : l'élève pose une question, l'IA résume. EduTutor inverse la logique : c'est **l'enseignant (ou l'étudiant) qui fournit son cours**, et l'IA produit un support d'évaluation *ancré sur ce cours précis*. Aucun concurrent ne propose de générer 10 QCM à partir d'un document propriétaire en moins d'une minute. Notre prompt système (`SYSTEM_PROMPT` dans `llm/services/quiz_prompt.py`) est conçu pour des QCM pédagogiques francophones stricts - pas une IA généraliste qui improvise.
 
-**Différenciateur 2 — Pédagogie ancrée (RAG sur cours fourni)**
+**Différenciateur 2 - Pédagogie ancrée (RAG sur cours fourni)**
 
-Les LLM bruts hallucinent sur des chiffres, des dates et des concepts spécifiques. EduTutor s'engage à **ancrer chaque question dans le texte fourni** (`build_user_prompt` injecte le corpus complet, tronqué à 8 000 caractères pour les petits modèles). Chaque question est traçable à une source. La validation stricte post-génération (`parse_and_validate_quiz`) garantit qu'aucune question malformée n'atteint l'utilisateur — un niveau de fiabilité que les chatbots généralistes ne peuvent pas offrir.
+Les LLM bruts hallucinent sur des chiffres, des dates et des concepts spécifiques. EduTutor s'engage à **ancrer chaque question dans le texte fourni** (`build_user_prompt` injecte le corpus complet, tronqué à 8 000 caractères pour les petits modèles). Chaque question est traçable à une source. La validation stricte post-génération (`parse_and_validate_quiz`) garantit qu'aucune question malformée n'atteint l'utilisateur - un niveau de fiabilité que les chatbots généralistes ne peuvent pas offrir.
 
-**Différenciateur 3 — RGPD local-first (non négociable pour le B2B éducation)**
+**Différenciateur 3 - RGPD local-first (non négociable pour le B2B éducation)**
 
-Wilgo, Leo, Quizlet AI et Khanmigo utilisent tous OpenAI ou Anthropic : **les données (cours, questions, réponses) quittent l'UE**. EduTutor tourne par défaut sur **Ollama local** — aucune donnée ne sort du serveur de l'établissement. C'est le prérequis non négociable pour signer un contrat avec un établissement scolaire français (RGPD + recommandations CNIL). Pour les équipes sans GPU, 7 fournisseurs cloud européens ou conformes sont disponibles (`groq`, `mistral`, `gemini`) avec switch à chaud depuis l'interface admin.
+Wilgo, Leo, Quizlet AI et Khanmigo utilisent tous OpenAI ou Anthropic : **les données (cours, questions, réponses) quittent l'UE**. EduTutor tourne par défaut sur **Ollama local** - aucune donnée ne sort du serveur de l'établissement. C'est le prérequis non négociable pour signer un contrat avec un établissement scolaire français (RGPD + recommandations CNIL). Pour les équipes sans GPU, 7 fournisseurs cloud européens ou conformes sont disponibles (`groq`, `mistral`, `gemini`) avec switch à chaud depuis l'interface admin.
 
 ---
 

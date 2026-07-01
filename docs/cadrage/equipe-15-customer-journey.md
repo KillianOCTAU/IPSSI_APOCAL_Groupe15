@@ -11,14 +11,14 @@
 | **Équipe n°** | 15 |
 | **Membres** | Yoann CURTY, Zouayobo DALI, Killian OCTAU, Antoine BLAIN, Maxence GIROUD, Hyndi FANNIR, BOUYABRI Mohamed |
 | **Sprint concerné** | Cadrage (J1 matin) |
-| **Version** | v1.0 (initiale) |
-| **Date de remise** | 29/06/2026 13h00 |
+| **Version** | v1.1 (modifié suite perturbation J1 — 14h00) |
+| **Date de remise** | 29/06/2026 15h00 |
 | **Statut** | Draft |
 
 ---
 
 
-## 1. Parcours Étudiant — Léa Martin (cible primaire)
+## 1. Parcours Étudiant - Léa Martin (co-primaire 1)
 
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
@@ -37,14 +37,14 @@
 ---
 
 
-## 2. Parcours Enseignant — Mme Sophie Lefèvre (cible secondaire émergente J1)
+## 2. Parcours Enseignant - Mme Sophie Lefèvre (co-primaire 2)
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
 |---|---|---|---|---|
 | **1. Découverte** | Lit un article du Café Pédagogique sur les outils IA pour enseignants. Note le nom EduTutor IA. En parle à une collègue lors de la pause déjeuner. | « Encore une promesse marketing ? Je veux voir des exemples concrets BTS Communication, pas juste du lycée ou du sup. » | 😐 Curieuse, prudente | 🚧 Pas d'exemples sectoriels (BTS, lycée pro, supérieur) sur la landing page. 💡 Démos segmentées par niveau + témoignage d'un·e prof BTS visible dès l'accueil. |
 | **2. Inscription** | Tente de créer un compte directement. Voit qu'il n'y a pas de rôle « enseignant » distinct — crée un compte standard. Attend de savoir si des fonctionnalités enseignant existent. | « 48 h pour une réponse ? S'ils ne sont pas réactifs avant l'achat, comment seront-ils en SAV ? » | 😡 Impatiente, frustrée (point de décrochage) | 🚧 Pas de parcours d'inscription enseignant dédié ni de rôle distinct dans Django Auth actuel. 💡 Compte gratuit immédiat + champ « je suis enseignant·e » lors de l'inscription pour personnaliser l'onboarding. |
 | **3. 1ʳᵉ utilisation** | Uploade un cours de Communication non-verbale (PDF 28 pages). Génère 1 quiz de 10 QCM pour tester la qualité avant de l'utiliser avec ses étudiants. | « Si les questions sont mal formulées ou factuellement fausses, je n'y reviens pas. Ça va donner quoi sur un cours de Communication ? » | 😐 Vigilante → 😊 Étonnée (questions pertinentes, bien rédigées) | 🚧 Pas d'aperçu des questions avant de les soumettre aux étudiants — impossible de corriger une question erronée. 💡 Mode « preview + édition manuelle » avant publication du quiz (piste Release 2 : éditeur intégré). |
-| **4. Usage régulier** | Génère 3 quiz différents/semaine pour varier et contourner le partage de corrigés sur WhatsApp. Adapte le niveau selon les retours de classe. | « J'ai gagné 4h/semaine sur la préparation. Mais si une question est fausse, je passe 20 min à la corriger manuellement dans Word. » | 😊 Satisfaite, productive | 🚧 Pas d'édition manuelle d'une question après génération (correction hors app). 💡 Éditeur inline par question dans l'interface quiz — coût faible, valeur critique pour les enseignants exigeants. |
+| **4. Usage régulier** | Génère 3 quiz différents/semaine. Consulte le tableau de bord de sa classe (`/teacher/dashboard`) : voit les 28 scores d'un coup d'œil, trie par score croissant. Reçoit une alerte email : 3 étudiants ont un score moyen < 5/10 sur leurs 3 derniers quiz. Les contacte depuis l'app en 2 clics. | « J'ai gagné 4h/semaine sur la préparation. Je vois en 3 clics qui décroche — je n'ai plus à éplucher 28 copies une par une. Mais si une question est fausse, je passe encore 20 min à la corriger dans Word. » | 😊 Satisfaite, productive, efficace | 🚧 Pas d'édition manuelle d'une question après génération (correction hors app). 💡 Éditeur inline par question — coût faible, valeur critique. ✅ **Dashboard classe (US-25) + alertes décrocheurs (US-26) : frictions majeures de suivi résolues en Release 1 (ajoutées suite perturbation J1).** |
 | **5. Recommandation à la direction** | Présente l'outil au conseil pédagogique. Calcule le ROI : 4h/sem × 30 sem × 5 profs = 600h/an économisées. Demande un budget pour passer en compte établissement. | « Si la direction signe, je veux pouvoir prouver le ROI avec des chiffres, pas juste une impression. Et je veux exporter en Word pour le CA. » | 😊 Convaincue, militante | 🚧 Pas de dashboard de ROI exportable (PDF/Excel) pour la direction. 💡 Rapport mensuel automatisé : nb de quiz générés × temps estimé économisé — argument commercial pour M. Chen. |
 
 **Moment de décrochage potentiel identifié : Étape 2 (Inscription)** — absence de rôle enseignant dédié et délai de réponse perçu > 24 h. Pour les enseignants pressés qui testent pendant une pause déjeuner, toute friction à l'entrée est rédhibitoire.
@@ -55,7 +55,7 @@
 ---
 
 
-## 3. Parcours Établissement — M. David Chen (cible tertiaire B2B)
+## 3. Parcours Établissement - M. David Chen (cible tertiaire B2B)
 
 
 | Étape | Actions | Pensées (au « je ») | Émotion | Frictions / Opportunités |
