@@ -23,6 +23,7 @@ import ConfidentialitePage from '@/pages/legal/ConfidentialitePage';
 import CGUPage from '@/pages/legal/CGUPage';
 import CookiesPage from '@/pages/legal/CookiesPage';
 
+
 export default function App() {
   return (
     <ThemeProvider>

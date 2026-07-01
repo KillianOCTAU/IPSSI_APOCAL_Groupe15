@@ -1,16 +1,5 @@
 """
-Client générique pour toute API au format « OpenAI Chat Completions ».
-
-[Note pédagogique] BEAUCOUP de fournisseurs ont copié le format d'API d'OpenAI :
-OpenAI, Groq, OpenRouter, Cerebras, Mistral… exposent tous le même endpoint
-`POST /chat/completions` avec le même corps `{model, messages, temperature}`.
-Plutôt que d'écrire 5 clients quasi identiques, on écrit UNE base ici, et chaque
-fournisseur devient une petite sous-classe qui fixe juste son URL et ses clés.
-C'est le principe DRY poussé jusqu'au bout (et une vraie illustration de
-l'héritage en POO).
-
-Les fournisseurs au format DIFFÉRENT (Ollama, Anthropic, Gemini) gardent, eux,
-leur propre client dédié.
+    Generic client for all requests using the OpenAI Chat Completions format.
 """
 
 import requests
