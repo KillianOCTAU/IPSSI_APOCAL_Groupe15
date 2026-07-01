@@ -4,6 +4,10 @@ Ces tests servent d'exemples : signup, login, logout, accès protégé.
 Lancez : pytest accounts/
 """
 
+import json
+import zipfile
+from io import BytesIO
+
 import pytest
 from django.contrib.auth.models import User
 from rest_framework.test import APIClient
@@ -90,3 +94,34 @@ def test_logout_invalidates_token(client, user):
     assert response.status_code == 204
     # Le token n'existe plus
     assert not Token.objects.filter(key=token.key).exists()
+
+
+def test_export_requires_auth(client):
+    response = client.get("/api/accounts/me/export/")
+    assert response.status_code in (401, 403)
+
+
+def test_export_returns_zip_with_json_and_csv(client, user):
+    from rest_framework.authtoken.models import Token
+
+    token = Token.objects.create(user=user)
+    client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
+    response = client.get("/api/accounts/me/export/")
+    assert response.status_code == 200
+    assert response["Content-Type"] == "application/zip"
+    assert response["Content-Disposition"].endswith('.zip"')
+
+    with zipfile.ZipFile(BytesIO(response.content)) as archive:
+        names = set(archive.namelist())
+        assert names == {"quiz.json", "reponses.csv", "audit.json"}
+
+        quiz_data = json.loads(archive.read("quiz.json"))
+        assert quiz_data["meta"]["user_id"] == user.pk
+        assert quiz_data["account"]["email"] == user.email
+
+        csv_content = archive.read("reponses.csv").decode("utf-8")
+        assert "quiz_id" in csv_content.splitlines()[0]
+
+        audit_data = json.loads(archive.read("audit.json"))
+        assert audit_data["user_email"] == user.email
+        assert audit_data["export_hash"]

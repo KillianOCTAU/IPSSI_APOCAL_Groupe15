@@ -1,21 +1,51 @@
-/** Mentions légales (modèle vierge à compléter). */
+﻿/** Mentions légales (modèle vierge à compléter). */
 import LegalScaffold, { type LegalSection } from './LegalScaffold';
 
 const SECTIONS: LegalSection[] = [
   {
     title: 'Éditeur du site',
-    hint: "nom de l'organisation/équipe, statut, adresse, email de contact.",
+    hint: (
+      <>
+        Le site EduTutor IA est édité par l'équipe projet Groupe 15 dans le cadre pédagogique
+        APOCAL'IPSSI 2026. Contact :{' '}
+        <a href="mailto:contact@edututor.local" className="text-indigo-600 hover:underline">
+          contact@edututor.local
+        </a>
+        .
+      </>
+    ),
   },
   {
     title: 'Directeur de la publication',
-    hint: 'nom de la personne responsable du contenu publié.',
+    hint:
+      "Le directeur de la publication est le responsable pédagogique fictif du projet EduTutor IA, représentant l'équipe Groupe 15.",
   },
-  { title: 'Hébergeur', hint: "nom, adresse et téléphone de l'hébergeur du site." },
+  {
+    title: 'Hébergeur',
+    hint:
+      "Le site EduTutor IA est hébergé par OVH SAS, située 2 rue Kellermann, 59100 Roubaix, France. OVH SAS est immatriculée au RCS de Lille Métropole sous le numéro 424 761 419 00045.",
+  },
   {
     title: 'Propriété intellectuelle',
-    hint: 'à qui appartiennent les textes, logos, code, contenus.',
+    hint:
+      'Les textes, logos, interfaces et éléments du service sont protégés. Les supports importés restent la propriété de leurs auteurs ou utilisateurs.',
   },
-  { title: 'Contact', hint: 'comment vous joindre pour toute question juridique.' },
+  {
+    title: 'Contact',
+    hint: (
+      <>
+        Pour toute question juridique ou demande liée au site, l'utilisateur peut écrire à{' '}
+        <a href="mailto:contact@edututor.local" className="text-indigo-600 hover:underline">
+          contact@edututor.local
+        </a>{' '}
+        ou au référent données{' '}
+        <a href="mailto:dpo@edututor.local" className="text-indigo-600 hover:underline">
+          dpo@edututor.local
+        </a>
+        .
+      </>
+    ),
+  },
 ];
 
 export default function MentionsLegalesPage() {

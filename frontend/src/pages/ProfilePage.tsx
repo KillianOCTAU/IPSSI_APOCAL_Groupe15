@@ -1,30 +1,14 @@
-/**
- * Page "Mon profil".
- *
- * Trois zones :
- *   1. Mes informations  : modifier prénom / nom / email
- *   2. Mot de passe       : changer son mot de passe (ancien requis)
- *   3. Zone de danger     : supprimer définitivement son compte
- *
- * [Note pédagogique] Changer son email = re-valider (le bandeau « email non
- * confirmé » réapparaîtra). La suppression est une action DESTRUCTIVE : on la
- * protège par une confirmation au mot de passe.
- *
- * [TODO J3-bis RGPD] Ajouter ici un bouton « Exporter mes données » (droit à la
- *   portabilité) — placeholder présent plus bas, à implémenter pendant la semaine.
- * [TODO J4] Ajouter un bouton « Signaler un contenu / un quiz » — placeholder.
- */
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { changePassword, deleteAccount, updateProfile } from '@/api/auth';
 import { getApiErrorMessage } from '@/api/errors';
+import ExportDataButton from '@/components/ExportDataButton';
 
 export default function ProfilePage() {
   const { user, refresh } = useAuth();
   const navigate = useNavigate();
 
-  // --- Zone 1 : informations ---
   const [firstName, setFirstName] = useState(user?.first_name ?? '');
   const [lastName, setLastName] = useState(user?.last_name ?? '');
   const [email, setEmail] = useState(user?.email ?? '');
@@ -32,7 +16,6 @@ export default function ProfilePage() {
   const [infoErr, setInfoErr] = useState<string | null>(null);
   const [infoLoading, setInfoLoading] = useState(false);
 
-  // --- Zone 2 : mot de passe ---
   const [oldPwd, setOldPwd] = useState('');
   const [newPwd, setNewPwd] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
@@ -40,7 +23,6 @@ export default function ProfilePage() {
   const [pwdErr, setPwdErr] = useState<string | null>(null);
   const [pwdLoading, setPwdLoading] = useState(false);
 
-  // --- Zone 3 : suppression ---
   const [delPwd, setDelPwd] = useState('');
   const [delConfirm, setDelConfirm] = useState(false);
   const [delErr, setDelErr] = useState<string | null>(null);
@@ -90,7 +72,7 @@ export default function ProfilePage() {
     setDelLoading(true);
     try {
       await deleteAccount(delPwd);
-      await refresh(); // token effacé -> l'utilisateur passe à null
+      await refresh(); 
       navigate('/', { replace: true });
     } catch (err) {
       setDelErr(getApiErrorMessage(err, 'Suppression impossible.'));
@@ -102,7 +84,6 @@ export default function ProfilePage() {
     <div className="max-w-2xl mx-auto space-y-6">
       <h1 className="text-2xl font-bold text-slate-900">Mon profil</h1>
 
-      {/* Zone 1 : informations */}
       <section className="card">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">Mes informations</h2>
         {infoMsg && (
@@ -159,7 +140,6 @@ export default function ProfilePage() {
         </form>
       </section>
 
-      {/* Zone 2 : mot de passe */}
       <section className="card">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">Changer mon mot de passe</h2>
         {pwdMsg && (
@@ -220,21 +200,10 @@ export default function ProfilePage() {
         </form>
       </section>
 
-      {/* Placeholders RGPD / signalement (à compléter pendant la semaine) */}
       <section className="card bg-slate-50">
         <h2 className="text-lg font-semibold text-slate-900 mb-2">Mes données</h2>
-        <p className="text-sm text-slate-500 mb-4">
-          Fonctionnalités à construire pendant la semaine APOCAL'IPSSI.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            disabled
-            title="À implémenter (J3-bis) — droit à la portabilité RGPD"
-            className="btn-secondary opacity-60 cursor-not-allowed"
-          >
-            Exporter mes données (bientôt)
-          </button>
+        <ExportDataButton />
+        <div className="mt-4">
           <button
             type="button"
             disabled
@@ -246,7 +215,6 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      {/* Zone 3 : danger */}
       <section className="card border-2 border-rose-200">
         <h2 className="text-lg font-semibold text-rose-700 mb-2">Zone de danger</h2>
         <p className="text-sm text-slate-600 mb-4">

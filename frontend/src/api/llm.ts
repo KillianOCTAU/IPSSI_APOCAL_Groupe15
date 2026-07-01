@@ -9,10 +9,12 @@ export type LLMPing = {
   message: string;
 };
 
+
 export async function ping(): Promise<LLMPing> {
   const { data } = await api.get<LLMPing>('/llm/ping/');
   return data;
 }
+
 
 /**
  * Génère un quiz à partir d'un PDF ou d'un texte.
